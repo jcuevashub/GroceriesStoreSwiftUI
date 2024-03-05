@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import CountryPicker
 
 struct SignInView: View {
     @State var txtMobile: String = ""
+    @State var isShowPicker: Bool = false
+    @State var countryObj: Country?
     
     var body: some View {
         ZStack {
@@ -36,13 +39,18 @@ struct SignInView: View {
                     
                     HStack {
                         Button {
-                            
+                            isShowPicker = true
                         } label: {
-                            Image("")
                             
-                            Text("+91")
-                                .font(.customfont(.semibold, fontSize: 18))
-                                .foregroundColor(.primaryText)
+                            if let countryObj = countryObj {
+                                Text("\(countryObj.isoCode.getFlag())")
+                                    .font(.customfont(.semibold, fontSize: 18))
+                                    .foregroundColor(.primaryText)
+                                
+                                Text("+\(countryObj.phoneCode)")
+                                    .font(.customfont(.semibold, fontSize: 18))
+                                    .foregroundColor(.primaryText)
+                            }
                         }
                         
                         TextField("Enter Mobile", text: $txtMobile)
@@ -97,11 +105,17 @@ struct SignInView: View {
                 
                     
                 }
+                .onAppear {
+                    self.countryObj = Country(phoneCode: "1", isoCode: "DO")
+                }
                 .padding(.horizontal, 20)
                 .frame(width: .screenWidth, alignment: .leading)
                 .padding(.top, .topInsets + .screenWidth * 0.7)
             }
         }
+        .sheet(isPresented: $isShowPicker, content: {
+            CountryPickerUI(country: $countryObj)
+        })
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
