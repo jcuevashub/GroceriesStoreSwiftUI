@@ -83,7 +83,7 @@ extension Color {
         return Color(hex: "B1B1B1")
     }
     
-    static var darkGray: Color {
+    static var textTitlte: Color {
         return Color(hex: "4C4F4D")
     }
     

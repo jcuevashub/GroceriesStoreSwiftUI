@@ -34,20 +34,13 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 30)
                 
-                RoundButton(title: "Get Started") {
-                    
+                NavigationLink {
+                    SignInView()
+                } label: {
+                    RoundButton(title: "Get Started") {
+                        
+                    }
                 }
-//                Button {
-//                    
-//                } label: {
-//                    Text("Get Started")
-//                        .font(.customfont(.semibold, fontSize: 18))
-//                        .foregroundColor(.white)
-//                        .multilineTextAlignment(.center)
-//                }
-//                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
-//                .background(Color.primaryApp)
-//                .cornerRadius(20)
                 
                 Spacer()
                     .frame(height: 80)
@@ -62,5 +55,7 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    NavigationView {
+        WelcomeView()
+    }
 }

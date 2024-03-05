@@ -21,6 +21,8 @@
 		8B0451C72B974A03002F841E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451C62B974A03002F841E /* Launch Screen.storyboard */; };
 		8B0451C92B974E39002F841E /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451C82B974E39002F841E /* UIExtension.swift */; };
 		8B0451CB2B9761EE002F841E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451CA2B9761EE002F841E /* RoundButton.swift */; };
+		8B0451CD2B976728002F841E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451CC2B976728002F841E /* SignInView.swift */; };
+		8B0451D02B977182002F841E /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 8B0451CF2B977182002F841E /* CountryPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 		8B0451C62B974A03002F841E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8B0451C82B974E39002F841E /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		8B0451CA2B9761EE002F841E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		8B0451CC2B976728002F841E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0451D02B977182002F841E /* CountryPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				8B0451C42B9749A3002F841E /* WelcomeView.swift */,
+				8B0451CC2B976728002F841E /* SignInView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -214,6 +219,9 @@
 			dependencies = (
 			);
 			name = GroceriesStoreSwiftUI;
+			packageProductDependencies = (
+				8B0451CF2B977182002F841E /* CountryPicker */,
+			);
 			productName = GroceriesStoreSwiftUI;
 			productReference = 8B0451872B9745C9002F841E /* GroceriesStoreSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -286,6 +294,9 @@
 				Base,
 			);
 			mainGroup = 8B04517E2B9745C9002F841E;
+			packageReferences = (
+				8B0451CE2B977182002F841E /* XCRemoteSwiftPackageReference "CountryPicker" */,
+			);
 			productRefGroup = 8B0451882B9745C9002F841E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,6 +348,7 @@
 				8B0451C52B9749A3002F841E /* WelcomeView.swift in Sources */,
 				8B0451C92B974E39002F841E /* UIExtension.swift in Sources */,
 				8B04518B2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift in Sources */,
+				8B0451CD2B976728002F841E /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +692,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B0451CE2B977182002F841E /* XCRemoteSwiftPackageReference "CountryPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mobven/CountryPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B0451CF2B977182002F841E /* CountryPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B0451CE2B977182002F841E /* XCRemoteSwiftPackageReference "CountryPicker" */;
+			productName = CountryPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B04517F2B9745C9002F841E /* Project object */;
 }
