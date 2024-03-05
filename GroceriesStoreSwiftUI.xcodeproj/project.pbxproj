@@ -24,6 +24,9 @@
 		8B0451CD2B976728002F841E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451CC2B976728002F841E /* SignInView.swift */; };
 		8B0451D02B977182002F841E /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 8B0451CF2B977182002F841E /* CountryPicker */; };
 		8B0451D22B9771E1002F841E /* CountryPickerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451D12B9771E1002F841E /* CountryPickerUI.swift */; };
+		8B0451D42B978E91002F841E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451D32B978E91002F841E /* LoginView.swift */; };
+		8B0451D62B9795ED002F841E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451D52B9795ED002F841E /* MainViewModel.swift */; };
+		8B0451D82B979826002F841E /* LineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451D72B979826002F841E /* LineTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		8B0451CA2B9761EE002F841E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		8B0451CC2B976728002F841E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		8B0451D12B9771E1002F841E /* CountryPickerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerUI.swift; sourceTree = "<group>"; };
+		8B0451D32B978E91002F841E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8B0451D52B9795ED002F841E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8B0451D72B979826002F841E /* LineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,7 @@
 		8B0451C02B974923002F841E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8B0451D52B9795ED002F841E /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 				8B0451C82B974E39002F841E /* UIExtension.swift */,
 				8B0451CA2B9761EE002F841E /* RoundButton.swift */,
 				8B0451D12B9771E1002F841E /* CountryPickerUI.swift */,
+				8B0451D72B979826002F841E /* LineTextField.swift */,
 			);
 			path = UICommon;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			children = (
 				8B0451C42B9749A3002F841E /* WelcomeView.swift */,
 				8B0451CC2B976728002F841E /* SignInView.swift */,
+				8B0451D32B978E91002F841E /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -348,11 +357,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B0451D22B9771E1002F841E /* CountryPickerUI.swift in Sources */,
+				8B0451D82B979826002F841E /* LineTextField.swift in Sources */,
+				8B0451D42B978E91002F841E /* LoginView.swift in Sources */,
 				8B0451CB2B9761EE002F841E /* RoundButton.swift in Sources */,
 				8B0451C52B9749A3002F841E /* WelcomeView.swift in Sources */,
 				8B0451C92B974E39002F841E /* UIExtension.swift in Sources */,
 				8B04518B2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift in Sources */,
 				8B0451CD2B976728002F841E /* SignInView.swift in Sources */,
+				8B0451D62B9795ED002F841E /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
