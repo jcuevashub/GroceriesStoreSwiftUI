@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8B04518B2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04518A2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift */; };
-		8B04518D2B9745C9002F841E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04518C2B9745C9002F841E /* ContentView.swift */; };
 		8B04518F2B9745CA002F841E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B04518E2B9745CA002F841E /* Assets.xcassets */; };
 		8B0451922B9745CA002F841E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451912B9745CA002F841E /* Preview Assets.xcassets */; };
 		8B04519C2B9745CB002F841E /* GroceriesStoreSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04519B2B9745CB002F841E /* GroceriesStoreSwiftUITests.swift */; };
@@ -18,6 +17,9 @@
 		8B0451BA2B97476E002F841E /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B62B97476E002F841E /* Gilroy-Bold.ttf */; };
 		8B0451BB2B97476E002F841E /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B72B97476E002F841E /* Gilroy-Medium.ttf */; };
 		8B0451BC2B97476E002F841E /* Gilroy-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B82B97476E002F841E /* Gilroy-SemiBold.ttf */; };
+		8B0451C52B9749A3002F841E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451C42B9749A3002F841E /* WelcomeView.swift */; };
+		8B0451C72B974A03002F841E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451C62B974A03002F841E /* Launch Screen.storyboard */; };
+		8B0451C92B974E39002F841E /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451C82B974E39002F841E /* UIExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,6 @@
 /* Begin PBXFileReference section */
 		8B0451872B9745C9002F841E /* GroceriesStoreSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceriesStoreSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B04518A2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesStoreSwiftUIApp.swift; sourceTree = "<group>"; };
-		8B04518C2B9745C9002F841E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B04518E2B9745CA002F841E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B0451912B9745CA002F841E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B0451972B9745CB002F841E /* GroceriesStoreSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesStoreSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +53,10 @@
 		8B0451B62B97476E002F841E /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
 		8B0451B72B97476E002F841E /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Medium.ttf"; sourceTree = "<group>"; };
 		8B0451B82B97476E002F841E /* Gilroy-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBold.ttf"; sourceTree = "<group>"; };
+		8B0451BE2B974880002F841E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8B0451C42B9749A3002F841E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		8B0451C62B974A03002F841E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8B0451C82B974E39002F841E /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +107,16 @@
 		8B0451892B9745C9002F841E /* GroceriesStoreSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				8B0451BD2B974772002F841E /* New Group */,
-				8B0451B42B974724002F841E /* font */,
+				8B0451C22B974959002F841E /* UICommon */,
+				8B0451C12B974932002F841E /* Model */,
+				8B0451C02B974923002F841E /* ViewModel */,
+				8B0451BF2B974901002F841E /* View */,
+				8B0451BE2B974880002F841E /* Info.plist */,
+				8B0451B42B974724002F841E /* Font */,
 				8B04518A2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift */,
-				8B04518C2B9745C9002F841E /* ContentView.swift */,
 				8B04518E2B9745CA002F841E /* Assets.xcassets */,
 				8B0451902B9745CA002F841E /* Preview Content */,
+				8B0451C62B974A03002F841E /* Launch Screen.storyboard */,
 			);
 			path = GroceriesStoreSwiftUI;
 			sourceTree = "<group>";
@@ -137,7 +146,7 @@
 			path = GroceriesStoreSwiftUIUITests;
 			sourceTree = "<group>";
 		};
-		8B0451B42B974724002F841E /* font */ = {
+		8B0451B42B974724002F841E /* Font */ = {
 			isa = PBXGroup;
 			children = (
 				8B0451B62B97476E002F841E /* Gilroy-Bold.ttf */,
@@ -145,14 +154,45 @@
 				8B0451B52B97476D002F841E /* Gilroy-Regular.ttf */,
 				8B0451B82B97476E002F841E /* Gilroy-SemiBold.ttf */,
 			);
-			path = font;
+			path = Font;
 			sourceTree = "<group>";
 		};
-		8B0451BD2B974772002F841E /* New Group */ = {
+		8B0451BF2B974901002F841E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B0451C32B974987002F841E /* Login */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B0451C02B974923002F841E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B0451C12B974932002F841E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B0451C22B974959002F841E /* UICommon */ = {
+			isa = PBXGroup;
+			children = (
+				8B0451C82B974E39002F841E /* UIExtension.swift */,
+			);
+			path = UICommon;
+			sourceTree = "<group>";
+		};
+		8B0451C32B974987002F841E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8B0451C42B9749A3002F841E /* WelcomeView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +305,7 @@
 				8B0451BB2B97476E002F841E /* Gilroy-Medium.ttf in Resources */,
 				8B04518F2B9745CA002F841E /* Assets.xcassets in Resources */,
 				8B0451BA2B97476E002F841E /* Gilroy-Bold.ttf in Resources */,
+				8B0451C72B974A03002F841E /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B04518D2B9745C9002F841E /* ContentView.swift in Sources */,
+				8B0451C52B9749A3002F841E /* WelcomeView.swift in Sources */,
+				8B0451C92B974E39002F841E /* UIExtension.swift in Sources */,
 				8B04518B2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,11 +499,14 @@
 				DEVELOPMENT_TEAM = XH6RTA62K4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GroceriesStoreSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,9 +514,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavozdelgeek.GroceriesStoreSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -486,11 +535,14 @@
 				DEVELOPMENT_TEAM = XH6RTA62K4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GroceriesStoreSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,9 +550,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavozdelgeek.GroceriesStoreSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
