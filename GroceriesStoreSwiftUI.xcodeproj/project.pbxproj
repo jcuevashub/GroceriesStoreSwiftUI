@@ -14,6 +14,10 @@
 		8B04519C2B9745CB002F841E /* GroceriesStoreSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04519B2B9745CB002F841E /* GroceriesStoreSwiftUITests.swift */; };
 		8B0451A62B9745CB002F841E /* GroceriesStoreSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451A52B9745CB002F841E /* GroceriesStoreSwiftUIUITests.swift */; };
 		8B0451A82B9745CB002F841E /* GroceriesStoreSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0451A72B9745CB002F841E /* GroceriesStoreSwiftUIUITestsLaunchTests.swift */; };
+		8B0451B92B97476E002F841E /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B52B97476D002F841E /* Gilroy-Regular.ttf */; };
+		8B0451BA2B97476E002F841E /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B62B97476E002F841E /* Gilroy-Bold.ttf */; };
+		8B0451BB2B97476E002F841E /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B72B97476E002F841E /* Gilroy-Medium.ttf */; };
+		8B0451BC2B97476E002F841E /* Gilroy-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0451B82B97476E002F841E /* Gilroy-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		8B0451A12B9745CB002F841E /* GroceriesStoreSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesStoreSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0451A52B9745CB002F841E /* GroceriesStoreSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesStoreSwiftUIUITests.swift; sourceTree = "<group>"; };
 		8B0451A72B9745CB002F841E /* GroceriesStoreSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesStoreSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B0451B52B97476D002F841E /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
+		8B0451B62B97476E002F841E /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
+		8B0451B72B97476E002F841E /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Medium.ttf"; sourceTree = "<group>"; };
+		8B0451B82B97476E002F841E /* Gilroy-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,8 @@
 		8B0451892B9745C9002F841E /* GroceriesStoreSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				8B0451BD2B974772002F841E /* New Group */,
+				8B0451B42B974724002F841E /* font */,
 				8B04518A2B9745C9002F841E /* GroceriesStoreSwiftUIApp.swift */,
 				8B04518C2B9745C9002F841E /* ContentView.swift */,
 				8B04518E2B9745CA002F841E /* Assets.xcassets */,
@@ -125,6 +135,24 @@
 				8B0451A72B9745CB002F841E /* GroceriesStoreSwiftUIUITestsLaunchTests.swift */,
 			);
 			path = GroceriesStoreSwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		8B0451B42B974724002F841E /* font */ = {
+			isa = PBXGroup;
+			children = (
+				8B0451B62B97476E002F841E /* Gilroy-Bold.ttf */,
+				8B0451B72B97476E002F841E /* Gilroy-Medium.ttf */,
+				8B0451B52B97476D002F841E /* Gilroy-Regular.ttf */,
+				8B0451B82B97476E002F841E /* Gilroy-SemiBold.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		8B0451BD2B974772002F841E /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +260,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B0451922B9745CA002F841E /* Preview Assets.xcassets in Resources */,
+				8B0451BC2B97476E002F841E /* Gilroy-SemiBold.ttf in Resources */,
+				8B0451B92B97476E002F841E /* Gilroy-Regular.ttf in Resources */,
+				8B0451BB2B97476E002F841E /* Gilroy-Medium.ttf in Resources */,
 				8B04518F2B9745CA002F841E /* Assets.xcassets in Resources */,
+				8B0451BA2B97476E002F841E /* Gilroy-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
