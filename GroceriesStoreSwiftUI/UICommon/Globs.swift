@@ -37,11 +37,11 @@ class Utils {
         return UserDefaults.standard.value(forKey: key) as Any
     }
     
-    class func UDValueBool(key: String) -> Any {
+    class func UDValueBool(key: String) -> Bool {
         return UserDefaults.standard.value(forKey: key) as? Bool ?? false
     }
     
-    class func UDValueTrueBool(key: String) -> Any {
+    class func UDValueTrueBool(key: String) -> Bool {
         return UserDefaults.standard.value(forKey: key) as? Bool ?? true
     }
     
