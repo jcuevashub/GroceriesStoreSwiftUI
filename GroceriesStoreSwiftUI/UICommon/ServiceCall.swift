@@ -8,55 +8,69 @@
 import Foundation
 
 class ServiceCall {
-    class func post(parameter: NSDictionary, path: String, isToken: Bool = false, withSuccess: @escaping ((_ responseObj: AnyObject?) -> ()),
-                    failure: @escaping ((_ error: Error?) -> ()) ) {
+    class func post(parameters: [String: Any], path: String, requiresToken: Bool = false, success: @escaping ((_ response: AnyObject?) -> Void), failure: @escaping ((_ error: Error?) -> Void)) {
         
         DispatchQueue.global(qos: .userInitiated).async {
             
-            var parameterData =  NSMutableData()
-            let dictKey = parameter.allKeys as! [String]
-            
-            var i = 0;
-            
-            for dictKey in dictKey {
-                if let values = parameter.value(forKey: dictKey) as? String {
-                    parameterData.append(String.init(format: "%@%@=%=@", i==0 ? "": "&", dictKey, values.replacingOccurrences(of: "+", with: "%2B")).data(using: String.Encoding.utf8)!)
-                } else {
-                    parameterData.append(String.init(format: "%@%@=%@", i==0 ? "" : "&" , dictKey, parameter.value(forKey: dictKey) as! CVarArg).data(using: String.Encoding.utf8)!)
-                }
-                i += 1
+            // Build query string from parameters
+            var parameterData = Data()
+            var urlComponents = URLComponents()
+            urlComponents.queryItems = parameters.compactMap { key, value in
+                guard let stringValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return nil }
+                return URLQueryItem(name: key, value: stringValue)
             }
-
-        var request = URLRequest(url: URL(string: path)!, timeoutInterval: 20)
-        request.addValue("application/x-www-form-urlenconded", forHTTPHeaderField: "Content-Type")
-        
-        request.httpMethod = "POST"
-        request.httpBody = parameterData as Data
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let query = urlComponents.query {
+                parameterData.append(query.data(using: .utf8) ?? Data())
+            }
             
-            if let error = error {
+            // Ensure the URL is valid
+            guard let url = URL(string: path) else {
                 DispatchQueue.main.async {
-                    failure(error)
+                    failure(NSError(domain: "Invalid URL", code: 400, userInfo: nil))
                 }
-            } else {
+                return
+            }
+            
+            // Create URL request
+            var request = URLRequest(url: url, timeoutInterval: 20)
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.httpBody = parameterData
+            
+            // Execute the request
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        failure(error)
+                    }
+                    return
+                }
                 
-                if let data = data {
-                    do {
-                        let jsonDictionary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
-                        
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        failure(NSError(domain: "No data received", code: 500, userInfo: nil))
+                    }
+                    return
+                }
+                
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
                         DispatchQueue.main.async {
-                            withSuccess(jsonDictionary)
+                            success(jsonResponse)
                         }
-                    } catch {
+                    } else {
                         DispatchQueue.main.async {
-                            failure(error)
+                            failure(NSError(domain: "Invalid response format", code: 500, userInfo: nil))
                         }
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        failure(error)
                     }
                 }
             }
-        
+            
+            task.resume()
         }
     }
- }
 }

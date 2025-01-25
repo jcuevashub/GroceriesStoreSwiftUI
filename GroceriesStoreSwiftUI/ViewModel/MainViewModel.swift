@@ -10,22 +10,60 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     static var shared: MainViewModel = MainViewModel()
     
+    @Published var txtUserName: String = ""
     @Published var txtEmail: String = ""
     @Published var txtPassword: String = ""
     @Published var isShowPassword: Bool = false
     
     @Published var showError = false
     @Published var errorMessage = ""
+    @Published var isUserLogin: Bool = false
+    @Published var userObj: UserModel = UserModel(dict: [:])
     
     
     init() {
         #if DEBUG
+        txtUserName = "testuser"
         txtEmail = "test@gmail.com"
         txtPassword = "123456"
         #endif
     }
     
     func serviceCallLogin() {
+        if(!txtEmail.isValidEmail) {
+            self.errorMessage = "please enter valid email address"
+            self.showError = true
+            return
+        }
+        
+        if(txtPassword.isEmpty) {
+            self.errorMessage = "please enter valid password"
+            self.showError = true
+            return
+        }
+        
+        ServiceCall.post(parameters: ["email": txtEmail, "password": txtPassword, "dervice_token": ""], path: Globs.SV_LOGIN) { responseObj in
+            if let response = responseObj as? NSDictionary {
+                if response.value(forKey: KKey.status) as? String ?? "" == "1" {
+                    self.setUserData(uDict: response.value(forKey: KKey.payload) as? NSDictionary ?? [:])
+                } else {
+                    self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
+                    self.showError = true
+                }
+            }
+        } failure: { error in
+            self.showError = true
+            self.errorMessage = error?.localizedDescription ?? "Fail"
+        }
+    }
+    
+    func serviceCallSignUp() {
+        
+        if(txtUserName.isEmpty) {
+            self.errorMessage = "please enter valid username"
+            self.showError = true
+            return
+        }
         
         if(!txtEmail.isValidEmail) {
             self.errorMessage = "please enter valid email address"
@@ -39,12 +77,10 @@ class MainViewModel: ObservableObject {
             return
         }
         
-        ServiceCall.post(parameter: ["email": txtEmail, "password": txtPassword, "dervice_token": ""], path: Globs.SV_LOGIN) { responseObj in
+        ServiceCall.post(parameters: ["username": txtUserName,"email": txtEmail, "password": txtPassword, "dervice_token": ""], path: Globs.SV_SIGNUP) { responseObj in
             if let response = responseObj as? NSDictionary {
                 if response.value(forKey: KKey.status) as? String ?? "" == "1" {
-                    print(response)
-                    self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Success"
-                    self.showError = true
+                    self.setUserData(uDict: response.value(forKey: KKey.payload) as? NSDictionary ?? [:])
                 } else {
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
                     self.showError = true
@@ -54,5 +90,18 @@ class MainViewModel: ObservableObject {
             self.errorMessage = error?.localizedDescription ?? "Fail"
             self.showError = true
         }
+    }
+    
+    func setUserData(uDict: NSDictionary) {
+        
+        Utils.UDSET(data: uDict, key: Globs.userPayload)
+        Utils.UDSET(data: true, key: Globs.userLogin)
+        self.userObj = UserModel(dict: uDict)
+        self.isUserLogin = true
+
+        self.txtUserName = ""
+        self.txtEmail = ""
+        self.txtPassword = ""
+        self.isShowPassword = false
     }
 }

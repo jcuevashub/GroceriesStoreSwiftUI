@@ -57,6 +57,32 @@ struct SignInView: View {
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity)
                     }
                     
+                    NavigationLink {
+                        LoginView()
+                    } label: {
+                        Text("Continue with Email Sign In")
+                            .font(.customfont(.semibold, fontSize: 18))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                    }    
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
+                    .background(Color(hex: "5383EC"))
+                    .cornerRadius(20)
+                    .padding(.bottom, 8)
+                    
+                    NavigationLink {
+                        SignUpView()
+                    } label: {
+                        Text("Continue with Email Sign Up")
+                            .font(.customfont(.semibold, fontSize: 18))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
+                    .background(Color.primary)
+                    .cornerRadius(20)
+                    .padding(.bottom, 8)
+                    
                     Divider()
                         .padding(.bottom, 25)
                     
@@ -101,16 +127,15 @@ struct SignInView: View {
                     .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
                     .background(Color(hex: "4A66AC"))
                     .cornerRadius(20)
-                    .padding(.bottom, 8)
-                
                     
-                }
-                .onAppear {
-                    self.countryObj = Country(phoneCode: "1", isoCode: "DO")
                 }
                 .padding(.horizontal, 20)
                 .frame(width: .screenWidth, alignment: .leading)
                 .padding(.top, .topInsets + .screenWidth * 0.7)
+              
+            }
+            .onAppear {
+                self.countryObj = Country(phoneCode: "1", isoCode: "DO")
             }
         }
         .sheet(isPresented: $isShowPicker, content: {
@@ -123,6 +148,10 @@ struct SignInView: View {
     }
 }
 
-#Preview {
-    SignInView()
+struct SignInView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            SignInView()
+        }
+    }
 }
