@@ -18,6 +18,7 @@ struct Globs {
 
     static let SV_LOGIN = BASE_URL + "login"
     static let SV_SIGNUP = BASE_URL + "sign_up"
+    static let SV_HOME = BASE_URL + "home"
 
 }
 

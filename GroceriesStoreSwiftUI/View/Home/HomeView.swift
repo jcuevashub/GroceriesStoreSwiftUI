@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var homeVm = HomeViewModel.shared
+    @StateObject var homeVM = HomeViewModel.shared
     
     var body: some View {
         ZStack {
@@ -29,7 +29,7 @@ struct HomeView: View {
                             .font(.customfont(.semibold, fontSize: 18))
                             .foregroundColor(.gray)
                     }
-                    SearchTextField(placeholder: "Search Store", txt: $homeVm.txtSearch)
+                    SearchTextField(placeholder: "Search Store", txt: $homeVM.txtSearch)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 10)
                     
@@ -41,17 +41,17 @@ struct HomeView: View {
                     .frame(height: 115)
                     .padding(.horizontal, 20)
                 
-                SectionTitleAll(title: "Exclisive offer", titleAll: "See All") {
+                SectionTitleAll(title: "Exclusive offer", titleAll: "See All") {
                     
                 }
                 .padding(.horizontal, 20)
                 
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 15) {
-                        ForEach(0...5, id: \.self) { index in
-                            ProductCell {
+                        ForEach(homeVM.offerArr, id: \.id) { product in
+                            ProductCell(product: product, didAddCart: {
                                 
-                            }
+                            })
                         }
                     }
                     .padding(.horizontal, 20)
@@ -65,10 +65,10 @@ struct HomeView: View {
                 
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 15) {
-                        ForEach(0...5, id: \.self) { index in
-                            ProductCell {
+                        ForEach(homeVM.bestArr, id: \.id) { product in
+                            ProductCell(product: product, didAddCart: {
                                 
-                            }
+                            })
                         }
                     }
                     .padding(.horizontal, 20)
@@ -82,10 +82,10 @@ struct HomeView: View {
                 
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 15) {
-                        ForEach(0...5, id: \.self) { index in
-                            CategoryCell(color: Color(hex: "F8A44C")) {
+                        ForEach(homeVM.typeArr, id: \.id) { category in
+                            CategoryCell(type: category, didAddCart: {
                                 
-                            }
+                            })
                         }
                     }
                     .padding(.horizontal, 20)
@@ -95,17 +95,17 @@ struct HomeView: View {
                 
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 15) {
-                        ForEach(0...5, id: \.self) { index in
-                            ProductCell {
+                        ForEach(homeVM.listArr, id: \.id) { product in
+                            ProductCell(product: product, didAddCart: {
                                 
-                            }
+                            })
                         }
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical, 4)
                 }
                 
-            }
+            }.padding(.bottom, 30)
         }
     }
 }

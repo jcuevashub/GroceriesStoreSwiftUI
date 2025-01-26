@@ -34,6 +34,9 @@ class ServiceCall {
             // Create URL request
             var request = URLRequest(url: url, timeoutInterval: 20)
             request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            if(requiresToken) {
+                request.addValue("pJYFk5XGrCrGZl92K5qu", forHTTPHeaderField: "access_token")
+            }
             request.httpMethod = "POST"
             request.httpBody = parameterData
             
