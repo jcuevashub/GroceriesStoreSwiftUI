@@ -25,7 +25,7 @@ struct HomeView: View {
                             .scaledToFit()
                             .frame(width: 16, height: 16)
                         
-                        Text("Dhaka, Banassre")
+                        Text("Santo Domingo, DR")
                             .font(.customfont(.semibold, fontSize: 18))
                             .foregroundColor(.gray)
                     }
@@ -33,7 +33,7 @@ struct HomeView: View {
                         .padding(.horizontal, 20)
                         .padding(.vertical, 10)
                     
-                }.padding(.top, .topInsets)
+                }
                 
                 Image("banner_top")
                     .resizable()
