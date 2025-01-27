@@ -88,7 +88,7 @@ struct SignInView: View {
                     
                     Text("Or connect with social media")
                         .font(.customfont(.semibold, fontSize: 14))
-                        .foregroundColor(.textTitlte)
+                        .foregroundColor(.textTitle)
                         .multilineTextAlignment(.center)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(.bottom, 25)
