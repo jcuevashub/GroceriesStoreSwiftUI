@@ -36,9 +36,9 @@ struct ProductDetailView: View {
                             .foregroundColor(.primaryText)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         Button {
-                            detailVM.isFav = detailVM.isFav
+                            detailVM.serviceCallAddRemoveFav()
                         } label: {
-                            Image(detailVM.isFav == 1 ? "favorite": "fav")
+                            Image(detailVM.isFav ? "favorite": "fav")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
@@ -192,7 +192,6 @@ struct ProductDetailView: View {
                             
                         }
                     }
-                    Divider()
                     Button {
                      
                     } label: {
@@ -238,6 +237,9 @@ struct ProductDetailView: View {
             
             
         }
+        .alert(isPresented: $detailVM.showError, content: {
+            Alert(title: Text(Globs.AppName), message: Text(detailVM.errorMessage), dismissButton: .default(Text("OK")))
+        })
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

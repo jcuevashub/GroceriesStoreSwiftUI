@@ -16,7 +16,7 @@ class ProductDetailViewModel: ObservableObject
     @Published var nutritionArr: [NutritionModel] = []
     @Published var imageArr: [ImageModel] = []
 
-    @Published var isFav: Int = 0
+    @Published var isFav: Bool = false
     @Published var isShowDetail: Bool = false
     @Published var isShowNutrition: Bool = false
     @Published var qty: Int = 1
@@ -66,6 +66,26 @@ class ProductDetailViewModel: ObservableObject
                             return ImageModel(dict: obj as? NSDictionary ?? [:])
                         })
                     }
+                } else {
+                    self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
+                    self.showError = true
+                }
+            }
+        } failure: { error in
+            self.errorMessage = error?.localizedDescription ?? "Fail"
+            self.showError = true
+
+        }
+    }
+    
+    func serviceCallAddRemoveFav() {
+        ServiceCall.post(parameters: ["prod_id": self.product.prodId], path: Globs.SV_ADD_REMOVE_FAVORITE, requiresToken: true) { responseObj in
+            if let response = responseObj as? NSDictionary {
+                if response.value(forKey: KKey.status) as? String ?? "" == "1" {
+                    self.isFav.toggle()
+                    HomeViewModel.shared.serviceCallList()
+                    self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Done"
+                    self.showError = true
                 } else {
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
                     self.showError = true

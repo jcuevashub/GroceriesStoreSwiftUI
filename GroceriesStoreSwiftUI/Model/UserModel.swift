@@ -19,12 +19,12 @@ struct UserModel: Identifiable, Equatable {
     
     init(dict: NSDictionary) {
         self.id = dict.value(forKey: "user_id") as? Int ?? 0
-        self.userName = dict.value(forKey: "userName") as? String ?? ""
+        self.userName = dict.value(forKey: "username") as? String ?? ""
         self.name = dict.value(forKey: "name") as? String ?? ""
         self.email = dict.value(forKey: "email") as? String ?? ""
         self.mobile = dict.value(forKey: "mobile") as? String ?? ""
-        self.mobileCode = dict.value(forKey: "mobileCode") as? String ?? ""
-        self.authToken = dict.value(forKey: "authToken") as? String ?? ""
+        self.mobileCode = dict.value(forKey: "mobile_code") as? String ?? ""
+        self.authToken = dict.value(forKey: "auth_token") as? String ?? ""
     }
     
     static func == (lhs: UserModel, rhs: UserModel) -> Bool {

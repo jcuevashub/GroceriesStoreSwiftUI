@@ -11,30 +11,32 @@ struct HomeView: View {
     @StateObject var homeVM = HomeViewModel.shared
     
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack {
-                    Image("color_logo")
+        VStack {
+            VStack {
+                Image("color_logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25)
+                
+                HStack {
+                    Image("location")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 25)
+                        .frame(width: 16, height: 16)
                     
-                    HStack {
-                        Image("location")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
-                        
-                        Text("Santo Domingo, DR")
-                            .font(.customfont(.semibold, fontSize: 18))
-                            .foregroundColor(.gray)
-                    }
-                    SearchTextField(placeholder: "Search Store", txt: $homeVM.txtSearch)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
-                    
+                    Text("Santo Domingo, DR")
+                        .font(.customfont(.semibold, fontSize: 18))
+                        .foregroundColor(.gray)
                 }
+                SearchTextField(placeholder: "Search Store", txt: $homeVM.txtSearch)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
                 
+              
+                
+            }.padding(.top, 60)
+               
+            ScrollView {
                 Image("banner_top")
                     .resizable()
                     .scaledToFill()
@@ -104,9 +106,11 @@ struct HomeView: View {
                     .padding(.horizontal, 20)
                     .padding(.vertical, 4)
                 }
+                .padding(.bottom, .bottomInsets + 46)
                 
-            }.padding(.bottom, 30)
+            }
         }
+        .ignoresSafeArea()
     }
 }
 
