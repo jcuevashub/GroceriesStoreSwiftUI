@@ -45,9 +45,14 @@ struct ExploreItemsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 15) {
                         ForEach(itemsVM.listArr, id: \.id) {
-                            pObj in
-                            ProductCell(product: pObj, width: .infinity) {
-                                
+                            product in
+                            ProductCell(product: product, width: .infinity) {
+                                CartViewModel.serviceCallAddToCart(prodId: product.prodId, qty: 1) {isDone, msg in
+                                    
+                                    self.itemsVM.errorMessage = msg
+                                    self.itemsVM.showError = true
+                                    
+                                }
                             }
                         }
                     }
@@ -59,6 +64,9 @@ struct ExploreItemsView: View {
             .padding(.top, .topInsets)
             .padding(.horizontal, 20)
         }
+        .alert(isPresented: $itemsVM.showError, content: {
+            Alert(title: Text(Globs.AppName), message: Text(itemsVM.errorMessage), dismissButton: .default(Text("OK")))
+        })
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
@@ -67,8 +75,10 @@ struct ExploreItemsView: View {
 }
 
 #Preview {
-    ExploreItemsView(itemsVM: ExploreItemViewModel(catObj: ExploreCategoryModel(dict: [     "cat_id": 1,
-                                                                                            "cat_name": "Frash Fruits & Vegetable",
-                                                                                            "image": "http://localhost:3001/img/category/20230726155407547qM5gSxkrCh.png",
-                                                                                            "color": "53B175"])))
+    NavigationView {
+        ExploreItemsView(itemsVM: ExploreItemViewModel(catObj: ExploreCategoryModel(dict: [     "cat_id": 1,
+                                                                                                "cat_name": "Frash Fruits & Vegetable",
+                                                                                                "image": "http://localhost:3001/img/category/20230726155407547qM5gSxkrCh.png",
+                                                                                                "color": "53B175"])))
+    }
 }

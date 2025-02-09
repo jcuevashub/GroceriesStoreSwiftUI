@@ -18,7 +18,7 @@ struct MainTabView: View {
                 ExploreView()
             }
             else if(homeVM.selecTab == 2) {
-                ExploreView()
+                MyCartView()
             }
             else if(homeVM.selecTab == 3) {
                 FavoriteView()
@@ -89,5 +89,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    NavigationView {
+        MainTabView()
+    }
 }

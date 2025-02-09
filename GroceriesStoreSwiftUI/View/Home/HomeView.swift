@@ -52,7 +52,12 @@ struct HomeView: View {
                     LazyHStack(spacing: 15) {
                         ForEach(homeVM.offerArr, id: \.id) { product in
                             ProductCell(product: product, didAddCart: {
-                                
+                                CartViewModel.serviceCallAddToCart(prodId: product.prodId, qty: 1) {isDone, msg in
+                                    
+                                    self.homeVM.errorMessage = msg
+                                    self.homeVM.showError = true
+                                    
+                                }
                             })
                         }
                     }
@@ -68,8 +73,14 @@ struct HomeView: View {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 15) {
                         ForEach(homeVM.bestArr, id: \.id) { product in
+                            
                             ProductCell(product: product, didAddCart: {
-                                
+                                CartViewModel.serviceCallAddToCart(prodId: product.prodId, qty: 1) {isDone, msg in
+                                    
+                                    self.homeVM.errorMessage = msg
+                                    self.homeVM.showError = true
+
+                                }
                             })
                         }
                     }
@@ -99,7 +110,11 @@ struct HomeView: View {
                     LazyHStack(spacing: 15) {
                         ForEach(homeVM.listArr, id: \.id) { product in
                             ProductCell(product: product, didAddCart: {
-                                
+                                CartViewModel.serviceCallAddToCart(prodId: product.prodId, qty: 1) {isDone, msg in
+                                    
+                                    self.homeVM.errorMessage = msg
+                                    self.homeVM.showError = true
+                                }
                             })
                         }
                     }
@@ -110,10 +125,15 @@ struct HomeView: View {
                 
             }
         }
+        .alert(isPresented: $homeVM.showError, content: {
+            Alert(title: Text(Globs.AppName), message: Text(homeVM.errorMessage), dismissButton: .default(Text("OK")))
+        })
         .ignoresSafeArea()
     }
 }
 
 #Preview {
-    HomeView()
+    NavigationView {
+        HomeView()
+    }
 }
