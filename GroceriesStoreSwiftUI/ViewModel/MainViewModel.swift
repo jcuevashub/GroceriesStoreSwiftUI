@@ -35,6 +35,11 @@ class MainViewModel: ObservableObject {
         #endif
     }
     
+    func logout() {
+        Utils.UDSET(data: false, key: Globs.userLogin)
+        isUserLogin = false
+    }
+    
     func serviceCallLogin() {
         if(!txtEmail.isValidEmail) {
             self.errorMessage = "please enter valid email address"

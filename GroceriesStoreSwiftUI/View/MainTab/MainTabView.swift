@@ -24,7 +24,7 @@ struct MainTabView: View {
                 FavoriteView()
             }
             else if(homeVM.selecTab == 4) {
-                ExploreView()
+                AccountView()
             }
             
             VStack {
