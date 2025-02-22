@@ -53,7 +53,12 @@ struct AccountView: View {
                                 AccountRow(title: "Delivery Address", icon: "a_delivery_address")
                             }
                             AccountRow(title: "Payment Methods", icon: "paymenth_methods")
-                            AccountRow(title: "Promo Code", icon: "a_promocode")
+                            
+                            NavigationLink {
+                                PromoCodeView()
+                            } label: {
+                                AccountRow(title: "Promo Code", icon: "a_promocode")
+                            }
                         }
                         
                         VStack {
