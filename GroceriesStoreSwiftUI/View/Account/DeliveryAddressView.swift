@@ -34,7 +34,7 @@ struct DeliveryAddressView: View {
                                         .padding(.vertical, 2)
                                         .background(Color.secondary.opacity(0.3))
                                         .cornerRadius(5)
-                                   
+                                    
                                 }
                                 
                                 
@@ -54,15 +54,15 @@ struct DeliveryAddressView: View {
                             
                             VStack {
                                 Spacer()
-                                Button {
-                                    
-                                } label: {
+                                
+                                NavigationLink {
+                                    AddDeliveryAddressView(isEdit: true, editObj: addressItem)
+                                } label : {
                                     Image(systemName: "pencil")
                                         .resizable()
                                         .frame(width: 20, height: 20)
                                         .foregroundColor(.primaryApp)
-                                }
-                                .padding(.bottom, 8)
+                                }.padding(.bottom, 8)
                                 
                                 Button {
                                     
@@ -80,7 +80,7 @@ struct DeliveryAddressView: View {
                         .background(Color.white)
                         .cornerRadius(5)
                         .shadow(color: Color.black.opacity(0.15), radius: 2)
-                   
+                        
                     })
                 }
                 .padding(20)
@@ -137,5 +137,7 @@ struct DeliveryAddressView: View {
 }
 
 #Preview {
-    DeliveryAddressView()
+    NavigationView {
+        DeliveryAddressView()
+    }
 }
