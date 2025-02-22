@@ -1,75 +1,53 @@
 //
-//  DeliveryAddressView.swift
+//  PaymentMethodsView.swift
 //  GroceriesStoreSwiftUI
 //
-//  Created by Jackson Cuevas on 15/2/25.
+//  Created by Jackson Cuevas on 22/2/25.
 //
 
 import SwiftUI
 
-struct DeliveryAddressView: View {
+struct PaymentMethodsView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    @StateObject var addressVM = DeliveryAddressViewModel.shared
+    @StateObject var payVM = PaymentViewModel.shared
     
     var body: some View {
         ZStack {
             ScrollView{
                 LazyVStack(spacing: 15){
-                    ForEach(addressVM.listArr, id: \.id, content: {
-                        addressItem in
+                    ForEach(payVM.listArr, id: \.id, content: {
+                        pMethodItem in
                         
                         HStack(spacing: 15) {
-                            VStack {
-                                HStack {
-                                    Text(addressItem.name)
-                                        .font(.customfont(.bold, fontSize: 14))
-                                        .foregroundColor(.primary)
-                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                    
-                                    Text(addressItem.typeName)
-                                        .font(.customfont(.bold, fontSize: 12))
-                                        .foregroundColor(.primary)
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 2)
-                                        .background(Color.secondary.opacity(0.3))
-                                        .cornerRadius(5)
-                                    
-                                }
-                                
-                                
-                                Text("\(addressItem.address),\(addressItem.city),\(addressItem.state),\(addressItem.postalCode)")
-                                    .font(.customfont(.medium, fontSize: 14))
+                            Image("paymenth_methods")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35, height: 35)
+                            
+                            VStack(spacing: 4) {
+                                Text(pMethodItem.name)
+                                    .font(.customfont(.bold, fontSize: 18))
                                     .foregroundColor(.primary)
-                                    .multilineTextAlignment(.leading)
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 
-                                Text(addressItem.phone)
-                                    .font(.customfont(.bold, fontSize: 12))
-                                    .foregroundColor(.secondary)
-                                    .padding(.vertical, 8)
+                                Text("**** **** **** \(pMethodItem.cardNumber)")
+                                    .font(.customfont(.medium, fontSize: 15))
+                                    .foregroundColor(.primaryApp)
+                                    .multilineTextAlignment(.leading)
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 
                             }
                             
                             VStack {
                                 Spacer()
-                                
-                                NavigationLink {
-                                    AddDeliveryAddressView(isEdit: true, editObj: addressItem)
-                                } label : {
-                                    Image(systemName: "pencil")
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                        .foregroundColor(.primaryApp)
-                                }.padding(.bottom, 8)
+                            
                                 
                                 Button {
-                                    addressVM.serviceCallRemove(cObj: addressItem)
+                                    payVM.serviceCallRemove(cObj: pMethodItem)
                                 } label: {
                                     Image("close")
                                         .resizable()
-                                        .foregroundColor(.primaryApp)
                                         .scaledToFit()
                                         .frame(width: 20, height: 20)
                                 }
@@ -102,13 +80,13 @@ struct DeliveryAddressView: View {
                     
                     Spacer()
                     
-                    Text("Delivery Address")
+                    Text("Payment Methods")
                         .font(.customfont(.bold, fontSize: 20))
                         .frame(height: 46)
                     Spacer()
                     
                     NavigationLink {
-                        AddDeliveryAddressView()
+                        AddPaymentMethodView()
                     } label : {
                         Image("add_temp")
                             .resizable()
@@ -116,8 +94,7 @@ struct DeliveryAddressView: View {
                             .frame(width: 20, height: 20)
                     }
                     .foregroundColor(.primaryText)
-                    .padding(.bottom, 8)
-         
+                    
                 }
                 .padding(.top, .topInsets)
                 .padding(.horizontal, 20)
@@ -127,9 +104,9 @@ struct DeliveryAddressView: View {
                 Spacer()
             }
         }
-        .onAppear {
-            //favVM.serviceCallList()
-        }
+        .alert(isPresented: $payVM.showError, content: {
+            Alert(title: Text(Globs.AppName), message: Text(payVM.errorMessage))
+        })
         .navigationTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -139,6 +116,6 @@ struct DeliveryAddressView: View {
 
 #Preview {
     NavigationView {
-        DeliveryAddressView()
+        PaymentMethodsView()
     }
 }

@@ -52,7 +52,13 @@ struct AccountView: View {
                             } label: {
                                 AccountRow(title: "Delivery Address", icon: "a_delivery_address")
                             }
-                            AccountRow(title: "Payment Methods", icon: "paymenth_methods")
+                            
+                            NavigationLink {
+                                PaymentMethodsView()
+                            } label: {
+                                AccountRow(title: "Payment Methods", icon: "paymenth_methods")
+                            }
+                         
                             
                             NavigationLink {
                                 PromoCodeView()

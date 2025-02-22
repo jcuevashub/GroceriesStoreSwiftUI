@@ -48,6 +48,9 @@
 		8B5962ED2D6A20FE00D2859D /* AddDeliveryAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5962EC2D6A20FE00D2859D /* AddDeliveryAddressView.swift */; };
 		8B5962EF2D6A352F00D2859D /* PromoCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5962EE2D6A352F00D2859D /* PromoCodeViewModel.swift */; };
 		8B5962F32D6A380500D2859D /* PromoCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5962F22D6A380500D2859D /* PromoCodeView.swift */; };
+		8B5962F52D6A3EB100D2859D /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5962F42D6A3EB100D2859D /* PaymentViewModel.swift */; };
+		8B5962F92D6A431200D2859D /* PaymentMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5962F82D6A431200D2859D /* PaymentMethodsView.swift */; };
+		8B5962FB2D6A48AA00D2859D /* AddPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5962FA2D6A48AA00D2859D /* AddPaymentMethodView.swift */; };
 		8B7FA58F2D580C9A009A1BA5 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FA58E2D580C9A009A1BA5 /* CartViewModel.swift */; };
 		8B7FA5962D581F8C009A1BA5 /* MyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FA5952D581F8C009A1BA5 /* MyCartView.swift */; };
 		8B7FA5982D5820C7009A1BA5 /* CartItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FA5972D5820C7009A1BA5 /* CartItemRow.swift */; };
@@ -124,6 +127,9 @@
 		8B5962EC2D6A20FE00D2859D /* AddDeliveryAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeliveryAddressView.swift; sourceTree = "<group>"; };
 		8B5962EE2D6A352F00D2859D /* PromoCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeViewModel.swift; sourceTree = "<group>"; };
 		8B5962F22D6A380500D2859D /* PromoCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeView.swift; sourceTree = "<group>"; };
+		8B5962F42D6A3EB100D2859D /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		8B5962F82D6A431200D2859D /* PaymentMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsView.swift; sourceTree = "<group>"; };
+		8B5962FA2D6A48AA00D2859D /* AddPaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodView.swift; sourceTree = "<group>"; };
 		8B7FA58E2D580C9A009A1BA5 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		8B7FA5952D581F8C009A1BA5 /* MyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartView.swift; sourceTree = "<group>"; };
 		8B7FA5972D5820C7009A1BA5 /* CartItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemRow.swift; sourceTree = "<group>"; };
@@ -294,6 +300,7 @@
 				8B7FA58E2D580C9A009A1BA5 /* CartViewModel.swift */,
 				8BBBE3A52D611CA300F67DFC /* DeliveryAddressViewModel.swift */,
 				8B5962EE2D6A352F00D2859D /* PromoCodeViewModel.swift */,
+				8B5962F42D6A3EB100D2859D /* PaymentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -362,6 +369,8 @@
 				8BBBE3A32D6115F400F67DFC /* DeliveryAddressView.swift */,
 				8B5962EC2D6A20FE00D2859D /* AddDeliveryAddressView.swift */,
 				8B5962F22D6A380500D2859D /* PromoCodeView.swift */,
+				8B5962F82D6A431200D2859D /* PaymentMethodsView.swift */,
+				8B5962FA2D6A48AA00D2859D /* AddPaymentMethodView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -516,10 +525,12 @@
 				8B0451D22B9771E1002F841E /* CountryPickerUI.swift in Sources */,
 				8B0451D82B979826002F841E /* LineTextField.swift in Sources */,
 				8B7FA58F2D580C9A009A1BA5 /* CartViewModel.swift in Sources */,
+				8B5962F92D6A431200D2859D /* PaymentMethodsView.swift in Sources */,
 				8B5962ED2D6A20FE00D2859D /* AddDeliveryAddressView.swift in Sources */,
 				8B5962EF2D6A352F00D2859D /* PromoCodeViewModel.swift in Sources */,
 				8B0451D42B978E91002F841E /* LoginView.swift in Sources */,
 				8B0375812D4573D20010BBE0 /* HomeViewModel.swift in Sources */,
+				8B5962FB2D6A48AA00D2859D /* AddPaymentMethodView.swift in Sources */,
 				8B0451DC2B981183002F841E /* Globs.swift in Sources */,
 				8B1A49CE2D4E7C8C002E50C0 /* FavoriteViewModel.swift in Sources */,
 				8B0375892D4574C00010BBE0 /* HomeView.swift in Sources */,
@@ -534,6 +545,7 @@
 				8B0375942D4587170010BBE0 /* ProductCell.swift in Sources */,
 				8B5962F32D6A380500D2859D /* PromoCodeView.swift in Sources */,
 				8B03758C2D4575290010BBE0 /* ExploreView.swift in Sources */,
+				8B5962F52D6A3EB100D2859D /* PaymentViewModel.swift in Sources */,
 				8B03758E2D457B540010BBE0 /* TabButton.swift in Sources */,
 				8BA0F6522D4FE7A90035065E /* ExploreItemsView.swift in Sources */,
 				8BA0F6502D4FE6110035065E /* ExploreItemViewModel.swift in Sources */,
