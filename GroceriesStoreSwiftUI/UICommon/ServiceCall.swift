@@ -36,7 +36,7 @@ class ServiceCall {
             request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             if(requiresToken) {
 //               #if DEBUG
-                    request.addValue("VcG7Bo3AMvBgm1iiSCgv", forHTTPHeaderField: "access_token")
+                    request.addValue("84VKDiacVH1iGCGzMRuo", forHTTPHeaderField: "access_token")
 //               #else
 //                   request.addValue(MainViewModel.shared.userObj.authToken, forHTTPHeaderField: "access_token")
 //              #endif

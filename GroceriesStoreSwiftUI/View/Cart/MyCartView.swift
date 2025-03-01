@@ -15,7 +15,7 @@ struct MyCartView: View {
             if(cartVM.listArr.count == 0) {
                 Text("You Cart is empty")
                     .font(.customfont(.bold, fontSize: 20))
-                    
+                
             }
             
             ScrollView{
@@ -31,7 +31,7 @@ struct MyCartView: View {
                 .padding(.top, .topInsets + 46)
                 .padding(.bottom, .bottomInsets + 60)
             }
-           
+            
             
             VStack{
                 HStack {
@@ -68,7 +68,7 @@ struct MyCartView: View {
                                     .padding(.vertical, 4)
                                     .background(Color.gray.opacity(0.2))
                                     .cornerRadius(5)
-                                    
+                                
                             }
                             .padding(.trailing)
                         }
@@ -99,6 +99,9 @@ struct MyCartView: View {
         .onAppear(){
             cartVM.serviceCallList()
         }
+        .background(NavigationLink(destination: OrderAcceptedView(), isActive: $cartVM.showOrderAccept, label: {
+            EmptyView()
+        }))
         .alert(isPresented: $cartVM.showError, content: {
             Alert(title: Text(Globs.AppName), message: Text(cartVM.errorMessage), dismissButton: .default(Text("OK")))
         })
