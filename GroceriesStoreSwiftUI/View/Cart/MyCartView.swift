@@ -51,7 +51,7 @@ struct MyCartView: View {
                 
                 if(cartVM.listArr.count > 0) {
                     Button {
-//                        didTap?()
+                        cartVM.showCheckout = true
                     } label: {
                         ZStack {
                             Text("Check Out")
@@ -80,6 +80,21 @@ struct MyCartView: View {
                     .padding(.bottom, .bottomInsets + 80)
                 }
             }
+            
+            if(cartVM.showCheckout) {
+                Color.black
+                    .opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation {
+                            cartVM.showCheckout = false
+                        }
+                    }
+                
+                CheckoutView(isShow: $cartVM.showCheckout)
+                    .transition(.opacity.combined(with: .move(edge: .bottom)))
+                
+            }
         }
         .onAppear(){
             cartVM.serviceCallList()
@@ -87,6 +102,7 @@ struct MyCartView: View {
         .alert(isPresented: $cartVM.showError, content: {
             Alert(title: Text(Globs.AppName), message: Text(cartVM.errorMessage), dismissButton: .default(Text("OK")))
         })
+        .animation(.easeInOut, value: cartVM.showCheckout)
         .ignoresSafeArea()
     }
 }

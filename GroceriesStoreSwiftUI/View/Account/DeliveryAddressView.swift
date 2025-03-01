@@ -12,6 +12,9 @@ struct DeliveryAddressView: View {
     
     @StateObject var addressVM = DeliveryAddressViewModel.shared
     
+    @State var isPicker: Bool = false
+    var didSelect:((_ obj: AddressModel) -> ())?
+
     var body: some View {
         ZStack {
             ScrollView{
@@ -80,6 +83,12 @@ struct DeliveryAddressView: View {
                         .background(Color.white)
                         .cornerRadius(5)
                         .shadow(color: Color.black.opacity(0.15), radius: 2)
+                        .onTapGesture {
+                            if(isPicker) {
+                                mode.wrappedValue.dismiss()
+                                didSelect?(addressItem)
+                            }
+                        }
                         
                     })
                 }
